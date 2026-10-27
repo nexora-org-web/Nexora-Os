@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d1b">
+  <meta name="description" content="NEXORA OS is a browser-based desktop playground built with HTML, CSS and vanilla JavaScript.">
+  <title>NEXORA OS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="desktop" class="desktop">
+    <div class="wallpaper-orb orb-one"></div><div class="wallpaper-orb orb-two"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">N</span><span>NEXORA <b>OS</b></span></div>
+      <div class="topbar-center" id="active-title">Your space. Your rules.</div>
+      <div class="topbar-right"><span class="status-dot"></span><span id="top-clock">--:--</span><button class="icon-button" id="quick-settings" title="Settings" aria-label="Open settings">⚙</button></div>
+    </header>
+
+    <section class="desktop-icons" aria-label="Desktop apps">
+      <button class="desktop-icon" data-app="notes"><span class="app-icon icon-notes">▤</span><span>Notes</span></button>
+      <button class="desktop-icon" data-app="calculator"><span class="app-icon icon-calc">＋</span><span>Calculator</span></button>
+      <button class="desktop-icon" data-app="arcade"><span class="app-icon icon-arcade">✦</span><span>Arcade</span></button>
+      <button class="desktop-icon" data-app="files"><span class="app-icon icon-files">▰</span><span>File Explorer</span></button>
+      <button class="desktop-icon" data-app="music"><span class="app-icon icon-music">♫</span><span>Music Player</span></button>
+      <button class="desktop-icon" data-app="paint"><span class="app-icon icon-paint">◒</span><span>Paint</span></button>
+      <button class="desktop-icon" data-app="terminal"><span class="app-icon icon-terminal">⌘</span><span>Terminal</span></button>
+    </section>
+
+    <section id="window-layer" class="window-layer" aria-live="polite"></section>
+
+    <div id="start-menu" class="start-menu hidden">
+      <div class="start-head"><div class="brand-mark large">N</div><div><strong>NEXORA OS</strong><small>Make room for what matters.</small></div></div>
+      <div class="start-search"><span>⌕</span><input id="app-search" placeholder="Find an app..." autocomplete="off"></div>
+      <div class="start-label">PINNED APPS</div>
+      <div id="start-app-grid" class="start-app-grid"></div>
+      <div class="start-footer"><span>Local session</span><button id="restart-ui">↻ Refresh desktop</button></div>
+    </div>
+
+    <div id="quick-panel" class="quick-panel hidden">
+      <div class="quick-panel-head"><strong>Quick settings</strong><button class="icon-button" id="close-quick">×</button></div>
+      <button class="quick-tile" id="toggle-theme"><span>◐</span><span><b>Light / dark</b><small>Switch interface theme</small></span></button>
+      <button class="quick-tile" id="quick-wallpaper"><span>✧</span><span><b>Change wallpaper</b><small>Cycle desktop backgrounds</small></span></button>
+      <div class="quick-note">Your preferences are saved in this browser.</div>
+    </div>
+
+    <div id="context-menu" class="context-menu hidden">
+      <button data-context="refresh">↻ Refresh desktop</button>
+      <button data-context="settings">⚙ Open settings</button>
+      <button data-context="wallpaper">✧ Change wallpaper</button>
+    </div>
+
+    <nav class="dock" aria-label="Taskbar">
+      <button id="start-button" class="dock-start" title="Start menu" aria-label="Open start menu"><span class="brand-mark">N</span></button>
+      <div class="dock-divider"></div>
+      <div id="dock-pinned" class="dock-pinned">
+        <button class="dock-app" data-app="notes" title="Notes">▤</button>
+        <button class="dock-app" data-app="files" title="File Explorer">▰</button>
+        <button class="dock-app" data-app="arcade" title="Arcade">✦</button>
+        <button class="dock-app" data-app="music" title="Music Player">♫</button>
+      </div>
+      <div id="dock-running" class="dock-running"></div>
+      <div class="dock-tray"><button id="dock-clock" title="Date and time">--:--</button><button id="tray-toggle" class="tray-button" title="Quick settings">⌃</button></div>
+    </nav>
+    <div id="toast" class="toast" role="status"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
